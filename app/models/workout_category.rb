@@ -1,0 +1,2 @@
+class WorkoutCategory < ApplicationRecord
+end

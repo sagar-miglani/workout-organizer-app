@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  equipment: MyString
+  body_parts: MyString
+  difficulty: MyString
+  description: MyString
+
+two:
+  equipment: MyString
+  body_parts: MyString
+  difficulty: MyString
+  description: MyString
