@@ -1,0 +1,2 @@
+class CartedWorkout < ApplicationRecord
+end

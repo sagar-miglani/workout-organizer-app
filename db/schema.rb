@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170309034441) do
+ActiveRecord::Schema.define(version: 20170316035751) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "carted_workouts", force: :cascade do |t|
+    t.integer  "exercise_id"
+    t.integer  "daily_workout_id"
+    t.integer  "user_id"
+    t.string   "status"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -38,6 +47,7 @@ ActiveRecord::Schema.define(version: 20170309034441) do
     t.string   "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "name"
   end
 
   create_table "images", force: :cascade do |t|
@@ -61,7 +71,7 @@ ActiveRecord::Schema.define(version: 20170309034441) do
   end
 
   create_table "workout_categories", force: :cascade do |t|
-    t.integer  "workout_id"
+    t.integer  "exercise_id"
     t.integer  "category_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
