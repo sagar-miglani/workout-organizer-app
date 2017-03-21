@@ -1,0 +1,91 @@
+(function() {
+  "use strict";
+
+  angular.module("app").controller('exercisesCtrl', function($scope, $http){
+
+    $scope.setUpIndex = function(){ 
+      $http.get('/api/v1/exercises.json').then(function(response){
+        $scope.exercises = response.data;
+        initMap($scope.meetings);
+      });
+      // $http.get('/api/v1/tags.json').then(function(response){
+      //   $scope.tags = response.data;
+      // });
+    };
+
+    // $scope.setUpShow = function(){
+    //   var path = window.location.pathname; 
+    //   var slicedPath = path.slice(path.lastIndexOf('/')+1, path.length);
+    //   $http.get('/api/v1/meetings/'+slicedPath+'.json').then(function(response){
+    //     $scope.meeting = response.data;
+    //     initMap([$scope.meeting]);
+    //   });
+    //   $http.get('/api/v1/tags.json').then(function(response){
+    //     $scope.tags = response.data;
+    //   });
+    // };
+
+
+    // $scope.createMeeting = function(name, address, startTime, endTime, notes, tags){ 
+    //   var params = {
+    //     name: name,
+    //     address: address,
+    //     start_time: startTime,
+    //     end_time: endTime,
+    //     notes: notes,
+    //     tags: tags
+    //   };
+    //   $http.post('/api/v1/meetings.json', params).then(function(response){
+    //     console.log(response);
+    //     $scope.meetings.push(response.data);
+    //   });
+    //   };
+
+    // $scope.changeOrderAttribute = function(attribute){
+    //   if(attribute !== $scope.orderAttribute){
+    //     $scope.orderDescending = false;
+    //   } else {
+    //     $scope.orderDescending = !$scope.orderDescending;
+    //   }
+
+    //   $scope.orderAttribute = attribute;
+    // };
+
+    // $scope.toggleForm = function(){
+    //   $scope.showForm = !$scope.showForm;
+    // };
+
+    // function initMap(meetings) {
+    //   var geocoder = new google.maps.Geocoder();
+    //   var map = new google.maps.Map(document.getElementById('map'), {
+    //     center: {lat: -34.397, lng: 150.644},
+    //     zoom: 8
+    //   });
+    //   var markers = [];
+    //   var bounds = new google.maps.LatLngBounds();
+    //   meetings.forEach(function(meeting) {
+    //     console.log(meeting);
+    //     geocoder.geocode({address: meeting.address}, function(results, status) {
+    //       if (status === google.maps.GeocoderStatus.OK) {
+    //         map.setCenter(results[0].geometry.location);
+    //         var marker = new google.maps.Marker({
+    //           position: results[0].geometry.location,
+    //           map: map,
+    //           title: 'Meetings Markers!'
+    //         });
+    //         markers.push(marker);
+    //         for (var i = 0;i < markers.length; i++) {
+    //           bounds.extend(markers[i].getPosition());
+    //         }
+    //         map.fitBounds(bounds);
+    //       } else {
+    //         alert('Geocode was not successful for the following reason: ' + status);
+    //       }
+    //     });
+    //   });
+    // }
+
+    window.scope = $scope;
+
+  });
+}());
