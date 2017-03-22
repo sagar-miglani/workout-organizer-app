@@ -73,16 +73,23 @@
                 </div>
                 <ul class="nav">
                     <li>
-                        <%=link_to "Users", users_path%>
+                        <a href="/users">
+                            Users
+                        </a>
                     </li>
                     <li>
-                        <a href="/exercises">
+                        <a href="http://localhost:3000/exercises">
                             Exercises
                         </a>
                     </li>
                     <li>
-                        <a href="/workouts">
+                        <a href="http://localhost:3000/dailyworkouts">
                             Workouts
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://localhost:3000/dailyworkouts/new">
+                            New Workout
                         </a>
                     </li>
                 </ul>
@@ -163,9 +170,7 @@
                 </div>
             </nav>
             <div class="content">
-                <div class="container-fluid">
-                	<%= yield %>
-                </div>
+                <div class="container-fluid"><%= yield %></div>
             </div>
             <footer class="footer">
                 <div class="container-fluid">
@@ -193,13 +198,6 @@
                             </li>
                         </ul>
                     </nav>
-                    <p class="copyright pull-right">
-                        &copy;
-                        <script>
-                            document.write(new Date().getFullYear())
-                        </script>
-                        <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
-                    </p>
                 </div>
             </footer>
         </div>

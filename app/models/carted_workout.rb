@@ -1,2 +1,0 @@
-class CartedWorkout < ApplicationRecord
-end

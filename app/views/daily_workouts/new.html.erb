@@ -1,0 +1,31 @@
+<div ng-app="app">
+	<div ng-controller="workoutsCtrl" ng-init="setUpIndex()">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header card-header-icon" data-background-color="rose">
+					<i class="material-icons">contacts</i>
+				</div>
+				<div class="card-content">
+					<h4 class="card-title">New Workout</h4>
+					<form method="#" action="#">
+						<div class="form-group label-floating">
+							<label class="control-label">Workout Name</label>
+							<input ng-model="newWorkoutName" type="text" class="form-control">
+						</div>
+						<div class="form-group label-floating">
+							<label class="control-label">Day of Week</label>
+							<input ng-model="newWorkoutDay" type="text" class="form-control">
+						</div>
+						<div class="form-group label-floating">
+							<label class="control-label">Duration</label>
+							<input ng-model="newWorkoutDuration" type="text" class="form-control">
+						</div>
+
+						<button href="/dailyworkouts" ng-click="createWorkout(newWorkoutName, newWorkoutDay, newWorkoutDuration)" type="submit" class="btn btn-fill btn-rose">Create</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

@@ -1,28 +1,26 @@
 class Api::V1::DailyWorkoutsController < ApplicationController
 	def index
-		if current_user.carted_workout.where(status:carted).any?
-			@carted_workout = current_user.carted_workout.where(status: "carted")
-		else
-			flash[:warning] = "No workouts added."
-		end
+		@daily_workout = DailyWorkout.all
+		render "index.json.jbuilder"
 	end
 
 	def create
-		carted_exercise = current_user.carted_exercise.where(status: "carted")
 
-    	daily_workout = Order.create(
-    		user_id: current_user.id,
-    		date: "",
-    		day_of_week: "Monday"
-    		duration: "10"
+    	@daily_workout = DailyWorkout.create(
+    		name: params[:name],
+    		user_id: params[:user_id],
+    		date: params[:date],
+    		day_of_week: params[:name],
+    		duration: params[:duration]
     		)
-
-    	carted_exercise.update_all(status: "added", daily_workout_id: daily_workout.id)
+    	
+    	render "show.json.jbuilder"
 	end
 
 	def show
-		@exercise = Exercise.find_by(id: params[:id])
+		@daily_workout = DailyWorkout.find_by(id: params[:id])
 
+		render "show.json.jbuilder"
     end
 
 end

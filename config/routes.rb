@@ -3,6 +3,11 @@ Rails.application.routes.draw do
   root to: "users#index"
   get "/users" => "users#index"
   get "/exercises" => "exercises#index"
+  get "/dailyworkouts" => "daily_workouts#index"
+  get "/dailyworkouts/new" => "daily_workouts#new"
+  get "/dailyworkouts/show/:id" => "daily_workouts#show"
+
+
 
   namespace :api do
   	namespace :v1 do
@@ -22,8 +27,8 @@ Rails.application.routes.draw do
 
       #Daily Workout Routes
       get "/dailyworkouts" => "daily_workouts#index"
-      post "/dailyworkouts" => "dailyworkouts#create"
-      get "/dailyworkouts/:id" => "dailyworkouts#show"
+      post "/dailyworkouts" => "daily_workouts#create"
+      get "/dailyworkouts/:id" => "daily_workouts#show"
       #ADD DESTROY AND EDIT route HERE
 
       #Carted Workout Routes

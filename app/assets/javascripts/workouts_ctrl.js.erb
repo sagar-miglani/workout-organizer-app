@@ -1,0 +1,35 @@
+(function() {
+  "use strict";
+
+  angular.module("app").controller('workoutsCtrl', function($scope, $http){
+
+    $scope.setUpIndex = function(){ 
+      $http.get('/api/v1/dailyworkouts.json').then(function(response){
+        $scope.workouts = response.data;
+      });
+
+      $http.get('/api/v1/exercises.json').then(function(response){
+        $scope.exercises = response.data;
+        initMap($scope.meetings);
+      });
+
+    };
+
+    $scope.createWorkout = function(name, day_of_week, duration){ 
+      var params = {
+        name: name,
+        day_of_week: day_of_week,
+        duration: 3,
+        user_id: 3,
+        date: "1-1-1"
+      };
+      $http.post('/api/v1/dailyworkouts.json', params).then(function(response){
+        console.log(response);        
+      });
+      
+      };
+
+    window.scope = $scope;
+
+  });
+}());
