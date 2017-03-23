@@ -573,7 +573,7 @@ demo = {
 
         if(type == 'basic'){
         	swal({
-                title: "Here's a message!",
+                title: "Successfully Added Exercise!",
                 buttonsStyling: false,
                 confirmButtonClass: "btn btn-success"
             });
@@ -588,8 +588,7 @@ demo = {
 
     	}else if(type == 'success-message'){
         	swal({
-                title: "Good job!",
-                text: "You clicked the button!",
+                title: "Successfully Added Exercise!",
                 buttonsStyling: false,
                 confirmButtonClass: "btn btn-success",
                 type: "success"

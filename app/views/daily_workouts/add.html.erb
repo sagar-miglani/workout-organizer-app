@@ -1,0 +1,47 @@
+<div ng-app="app">
+	<div ng-controller="workoutsCtrl" ng-init="setUpShow()">
+		<div class="container-fluid">
+            <div class="header text-center">
+	            <h2> {{workout.name}} </h2>
+	            <h4> {{workout.day}} </h4>
+	            <h4> {{workout.duration}} Minutes</h4>
+	            <h6 class="info-text">Select Workouts to Add to {{workout.name}}</h6>
+        	</div>
+        </div>
+		
+		<div class = "row">
+
+		<div ng-repeat="exercise in exercises">
+			<div class="clearfix" ng-if="$index % 3 == 0"></div>
+			  <div class = "col-md-4">
+			    <div class = "card card-product">
+			        <div class="card-image" data-header-animation="true">
+			            <a href="#pablo">
+			                <img class="img" src="/img/card-3.jpeg">
+			            </a>
+			        </div>
+			        <div class="card-content">
+			          <div class="card-actions">
+			              <h5>{{exercise.equipment}}</h5>
+			              <h6>{{exercise.difficulty}}</h6>
+			              <h6>{{exercise.body_parts}}</h6>
+			          </div>
+			          <h4 class="card-title">
+			              <a href="#pablo">{{ exercise.name }}</a>
+			          </h4>
+			          <div class="card-description">
+			              {{ exercise.description }}
+			          </div>
+			          <div class="row">
+			          	<button ng-click="addExercise(exercise.id, workout.id)" class="btn btn-success btn-sm center-block" onclick="demo.showSwal('success-message')">Add</button>
+			          </div>
+
+
+			        </div>
+			    </div>
+			  </div>
+			</div>
+		</div>
+
+	</div><!-- Closes ng-controller -->
+</div><!-- Closes ng-app -->

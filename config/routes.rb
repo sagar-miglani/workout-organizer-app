@@ -2,10 +2,13 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "users#index"
   get "/users" => "users#index"
+  get "/signup" => "users#new"
   get "/exercises" => "exercises#index"
   get "/dailyworkouts" => "daily_workouts#index"
   get "/dailyworkouts/new" => "daily_workouts#new"
-  get "/dailyworkouts/show/:id" => "daily_workouts#show"
+  get "/addexercises/:id" => "daily_workouts#add"
+  get "/dailyworkouts/:id" => "daily_workouts#show"
+
 
 
 
@@ -36,6 +39,9 @@ Rails.application.routes.draw do
       post "/cartedworkouts" => "carted_workouts#create"
       get "/cartedworkouts/:id" => "carted_workouts#show"
       delete "/cartedworkouts" => "carted_workouts#delete"
+
+      #Join Table Workout and Exercises
+      post "/workoutexercises" => "workoutexercises#create"
 
   	end
   end

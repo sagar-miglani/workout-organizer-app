@@ -14,16 +14,12 @@
                 </div>
                 <div class="card-content">
                   <div class="card-actions">
-                      <button type="button" class="btn btn-danger btn-simple fix-broken-card">
-                          <i class="material-icons">build</i> Fix Header!
-                      </button>
-                      <button type="button" class="btn btn-default btn-simple" rel="tooltip" data-placement="bottom" title="View">
+                      <a type="button" href="/dailyworkouts/{{ workout.id }}" class="btn btn-default btn-simple" rel="tooltip" data-placement="bottom" title="View">
                           <i class="material-icons">art_track</i>
-                      </button>
-                      <a class="btn btn-success btn-simple" rel="tooltip" data-placement="bottom" title="Edit" href="/dailyworkouts/{{ workout.id }}"><i class="material-icons">edit</i></a>
-                      <!-- <button type="button" class="btn btn-danger btn-simple" rel="tooltip" data-placement="bottom" title="Remove">
-                          <i class="material-icons">close</i>
-                      </button> -->
+                      </a>
+                      <a type="button" href="/addexercises/{{ workout.id }}" class="btn btn-success btn-simple" rel="tooltip" data-placement="bottom" title="Edit">
+                          <i class="material-icons">edit</i>
+                      </a>
                   </div>
                   <h4 class="card-title">
                       <a href="#pablo">{{ workout.name }}</a>

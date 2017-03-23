@@ -1,5 +1,6 @@
 json.array! @daily_workout.each do |daily|
-	json.name daily.id
+	json.name daily.name
+	json.id daily.id
 	json.user_id daily.name
 	json.date daily.date
 	json.day daily.day_of_week

@@ -1,5 +1,6 @@
-json.name @daily_workout.id
-json.user_id @daily_workout.name
+json.id @daily_workout.id
+json.name @daily_workout.name
+json.user_id @daily_workout.user_id
 json.date @daily_workout.date
 json.day @daily_workout.day_of_week
 json.duration @daily_workout.duration

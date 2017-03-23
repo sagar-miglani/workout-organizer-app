@@ -8,5 +8,13 @@ class DailyWorkoutsController < ApplicationController
 		render "new.html.erb"
 	end
 
+	def show
+		render "show.html.erb"
+	end
+
+	def add
+		render "add.html.erb"
+	end
+
 
 end
