@@ -1,6 +1,11 @@
 class Api::V1::ExercisesController < ApplicationController
 	def index
-		@exercises = Exercise.all
+		if params[:category]
+			@exercises = Category.find_by(id: params[:category]).exercises
+		else
+			@exercises = Exercise.all
+		end
+
 		render 'index.json.jbuilder'
 	end
 

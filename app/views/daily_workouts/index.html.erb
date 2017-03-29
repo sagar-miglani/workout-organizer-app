@@ -17,8 +17,11 @@
                       <a type="button" href="/dailyworkouts/{{ workout.id }}" class="btn btn-default btn-simple" rel="tooltip" data-placement="bottom" title="View">
                           <i class="material-icons">art_track</i>
                       </a>
-                      <a type="button" href="/addexercises/{{ workout.id }}" class="btn btn-success btn-simple" rel="tooltip" data-placement="bottom" title="Edit">
-                          <i class="material-icons">edit</i>
+                      <a type="button" href="/addexercises/{{ workout.id }}" class="btn btn-success btn-simple" rel="tooltip" data-placement="bottom" title="Add">
+                          <i class="material-icons">add</i>
+                      </a>
+                      <a type="button" ng-click="deleteWorkout({{workout.id}})" class="btn btn-success btn-simple" rel="tooltip" data-placement="bottom" title="Delete">
+                          <i class="material-icons">delete</i>
                       </a>
                   </div>
                   <h4 class="card-title">

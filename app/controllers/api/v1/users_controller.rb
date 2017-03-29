@@ -1,12 +1,14 @@
 class Api::V1::UsersController < ApplicationController
 	def index
-		@users = User.all
-		render 'index.json.jbuilder'
+		if(params[:email])
+			@user = User.find_by(email: params[:email])
+			render "show.json.jbuilder"
+		else
+			@users = User.all
+			render 'index.json.jbuilder'
+		end
 	end
 
-	def new
-		render 'new.html.erb'
-	end
 
 	def create
 		user = User.create(
@@ -20,10 +22,14 @@ class Api::V1::UsersController < ApplicationController
 			password: params[:password],
 			)
 
-		redirect_to root_path
+		redirect_to "/login"
 	end
 
+
 	def show
+
 		@user = User.find(params[:id])
+
+		render "show.json.jbuilder"
 	end
 end

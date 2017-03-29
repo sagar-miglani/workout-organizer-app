@@ -8,4 +8,3 @@ json.array! @users.each do |user|
 	json.gender user.gender
 	json.email user.email
 	json.password user.password
-end

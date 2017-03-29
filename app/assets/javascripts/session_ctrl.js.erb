@@ -1,0 +1,20 @@
+(function() {
+  "use strict";
+
+  angular.module("app").controller('sessionCtrl', function($scope, $http){
+
+    $scope.createSession = function(email, password)
+    {
+    	var params = {
+    		email: email,
+    		password: password
+    	};
+    	$http.post('/login', params).then(function(response){
+        console.log(response);        
+      });
+    }
+
+    window.scope = $scope;
+
+  });
+}());

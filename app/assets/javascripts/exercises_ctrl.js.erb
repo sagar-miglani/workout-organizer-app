@@ -4,10 +4,10 @@
   angular.module("app").controller('exercisesCtrl', function($scope, $http){
 
     $scope.setUpIndex = function(){ 
-      
+      $scope.modalExercise = {};
+
       $http.get('/api/v1/exercises.json').then(function(response){
         $scope.exercises = response.data;
-        initMap($scope.exercises);
       });
       // $http.get('/api/v1/tags.json').then(function(response){
       //   $scope.tags = response.data;
@@ -15,7 +15,16 @@
     };
 
 
-
+    $scope.changeExercises  = function(category){
+      $http.get('/api/v1/exercises.json?category=' + category).then(function(response){
+        $scope.exercises = response.data;
+      });
+    };
+    $scope.showModal = function(exercise)
+    {
+      console.log("this is happening");
+      $scope.modalExercise = exercise;
+    }
     window.scope = $scope;
 
   });

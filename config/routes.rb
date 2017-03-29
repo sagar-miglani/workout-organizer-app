@@ -9,6 +9,10 @@ Rails.application.routes.draw do
   get "/addexercises/:id" => "daily_workouts#add"
   get "/dailyworkouts/:id" => "daily_workouts#show"
 
+  get "/login" => "sessions#new"
+  post "/login" => "sessions#create"
+  get "/logout" => "sessions#destroy"
+
 
 
 
@@ -42,6 +46,7 @@ Rails.application.routes.draw do
 
       #Join Table Workout and Exercises
       post "/workoutexercises" => "workoutexercises#create"
+      delete "/workoutexercises/:exercise_id/:daily_workout_id" => "workoutexercises#destroy"
 
   	end
   end

@@ -45,6 +45,12 @@
       });
     };
 
+    $scope.changeExercises  = function(category){
+      $http.get('/api/v1/exercises.json?category=' + category).then(function(response){
+        $scope.exercises = response.data;
+      });
+    };
+
     $scope.addExercise = function(exercise_id, workout_id)
     {
     	var params = {
@@ -55,7 +61,13 @@
         console.log(response);        
       });
     }
-
+    $scope.removeExercise = function(exercise_id, workout_id)
+    {
+      $http.delete("/api/v1/workoutexercises/" + exercise_id + "/" + workout_id).then(function(response){
+        console.log(response);
+        $scope.workoutExercises = response.data.exercises;
+      });
+    }
     window.scope = $scope;
 
   });

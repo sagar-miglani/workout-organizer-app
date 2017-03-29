@@ -20,16 +20,21 @@
 			            </a>
 			        </div>
 			        <div class="card-content">
+
 			          <div class="card-actions">
-			              <h5>{{workoutExercise.equipment}}</h5>
-			              <h6>{{workoutExercise.difficulty}}</h6>
-			              <h6>{{workoutExercise.body_parts}}</h6>
-			          </div>
+	                      <a type="button" ng-click="removeExercise(workoutExercise.id, workout.id)"" class="btn btn-success btn-simple" rel="tooltip" data-placement="bottom" title="Delete">
+	                          <i class="material-icons">delete</i>
+	                      </a>
+                  	  </div>
+
+			          
 			          <h4 class="card-title">
 			              <a href="#pablo">{{ workoutExercise.name }}</a>
 			          </h4>
 			          <div class="card-description">
-			              {{ workoutExercise.description }}
+			              <h5>{{workoutExercise.equipment}}</h5>
+			              <h6>{{workoutExercise.difficulty}}</h6>
+			              <h6>{{workoutExercise.body_parts}}</h6>
 			          </div>
 			          <div class="row">
 			          	<button ng-click="addworkoutExercise(workoutExercise.id, workout.id)" class="btn btn-success btn-sm center-block" onclick="demo.showSwal('success-message')">Add</button>

@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 	end
 
 	def new
-		render 'new.html.erb'
+		render 'new.html.erb', :layout => false
 	end
 
 	def create
